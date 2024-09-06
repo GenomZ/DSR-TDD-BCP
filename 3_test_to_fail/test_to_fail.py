@@ -7,6 +7,7 @@
 # Every hour a Static telegram is sent with the meter status which shall be stating OK throughout the whole meter
 # operation.
 
+
 # TODO Write tests that record telegrams and are checking if the meter is up the certification requirements
 # TODO Report all inconsistencies with the required parameters
 
