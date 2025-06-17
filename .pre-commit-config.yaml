@@ -1,11 +1,25 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for a list of available hooks
+
 repos:
--   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v2.3.0
+  # Standard hooks for file formatting and syntax checking
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0 # Use a recent, stable version
     hooks:
-    -   id: check-yaml
-    -   id: end-of-file-fixer
-    -   id: trailing-whitespace
--   repo: https://github.com/psf/black
-    rev: 22.10.0
+      - id: trailing-whitespace
+        # This hook trims trailing whitespace from files.
+      - id: end-of-file-fixer
+        # This hook ensures that a file is either empty or ends with a single newline.
+      - id: check-yaml
+        # This hook checks yaml files for parseable syntax.
+        # You can exclude files if needed, e.g., exclude: ^(environment\.yaml)
+
+  # Flake8 hook for Python linting and complexity checks
+  - repo: https://github.com/pycqa/flake8
+    rev: 7.1.0 # Use a recent, stable version
     hooks:
-    -   id: black
+      - id: flake8
+        # Pass arguments to flake8. Here we set max-complexity.
+        # The default is 10.
+        args: ["--max-complexity=20"]
+        # You can add other args like --ignore=E501 to ignore specific errors.
